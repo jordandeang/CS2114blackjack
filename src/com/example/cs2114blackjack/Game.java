@@ -1,6 +1,6 @@
 package com.example.cs2114blackjack;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 public class Game
@@ -8,16 +8,17 @@ public class Game
 
     //fields
     private ArrayList<Card> discard;
-    private Stack<Card> deck;
+    private ArrayDeque<Card> deck;
+    private ArrayList<Card> hand;
 
     //initialize
     public Game()
     {
         discard = new ArrayList<Card>();
-        deck = new Stack<Card>();
+        deck = new ArrayDeque<Card>();
+        hand = new ArrayList<Card>();
         fillDiscard();
         shuffleDeck();
-
     }
 
     private void shuffleDeck()
