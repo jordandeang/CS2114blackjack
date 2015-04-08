@@ -7,45 +7,55 @@ import java.util.ArrayList;
 public class Game
 {
 
-    //fields
+    // fields
     private ArrayList<Card> discard;
-    private Stack<Card> deck;
+    private Stack<Card>     deck;
     private ArrayList<Card> hand;
 
-    //initialize
+
+    // initialize
     public Game()
     {
         discard = new ArrayList<Card>();
         deck = new Stack<Card>();
         hand = new ArrayList<Card>();
-        fillDiscard();
+        fillDiscard(1);
         shuffleDeck();
     }
 
-    //methods
+
+    // methods
     private void shuffleDeck()
     {
         // TODO take the cards from the discard into the deck
         while (!hand.isEmpty())
         {
-            deck.push(discard.remove(Random.generator().nextInt(discard.size() +2 )));
+            deck.push(discard.remove(Random.generator().nextInt(
+                discard.size() + 2)));
         }
 
     }
 
-    private void fillDiscard()
+
+    /**
+     * @param n
+     *            the number of 52 card decks used.
+     */
+    private void fillDiscard(int n)
     {
         // TODO fill the discard pile with all of the cards necessary
-        for (int i = 1; i < 14; i++)
+        for (int d = 0; d < n; d++)
         {
-            for (int j = 1; j < 5; j++)
+            for (int i = 1; i < 14; i++)
             {
-                Card card = new Card(i, j);
-                discard.add(card);
+                for (int j = 1; j < 5; j++)
+                {
+                    Card card = new Card(i, j);
+                    discard.add(card);
+                }
             }
         }
 
     }
-
 
 }
