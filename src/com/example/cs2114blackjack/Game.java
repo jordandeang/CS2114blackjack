@@ -70,4 +70,12 @@ public class Game
         dealerHand.add(deck.pop());
     }
 
+    /**
+     * player chooses to hit
+     */
+    public void hit()
+    {
+        playerHand.add(deck.pop());
+    }
+
 }
