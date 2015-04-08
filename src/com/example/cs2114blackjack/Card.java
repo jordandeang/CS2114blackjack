@@ -2,20 +2,41 @@ package com.example.cs2114blackjack;
 
 public class Card
 {
-    private int number;
+    private int    number;
     private String suit;
+    private int    value;
+
 
     private Card()
     {
 
     }
 
-    Card(int i, int j)
+
+    // ----------------------------------------------------------
+    /**
+     * Create a new Card object.
+     *
+     * @param i
+     *            number
+     * @param j
+     *            suit
+     */
+    public Card(int i, int j)
     {
         number = i;
         suit = numberToSuit(j);
+        if (i < 10)
+        {
+            value = i;
+        }
+        else
+        {
+            value = 10;
+        }
 
     }
+
 
     private String numberToSuit(int j)
     {
