@@ -1,5 +1,6 @@
 package com.example.cs2114blackjack;
 
+import sofia.util.Random;
 import java.util.Stack;
 import java.util.ArrayList;
 
@@ -24,6 +25,10 @@ public class Game
     private void shuffleDeck()
     {
         // TODO take the cards from the discard into the deck
+        while (!hand.isEmpty())
+        {
+            deck.push(discard.remove(Random.generator().nextInt(discard.size() +2 )));
+        }
 
     }
 
