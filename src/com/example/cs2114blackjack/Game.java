@@ -10,7 +10,8 @@ public class Game
     // fields
     private ArrayList<Card> discard;
     private Stack<Card>     deck;
-    private ArrayList<Card> hand;
+    private ArrayList<Card> playerHand;
+    private ArrayList<Card> dealerHand;
 
 
     // initialize
@@ -18,7 +19,8 @@ public class Game
     {
         discard = new ArrayList<Card>();
         deck = new Stack<Card>();
-        hand = new ArrayList<Card>();
+        playerHand = new ArrayList<Card>();
+        dealerHand = new ArrayList<Card>();
         fillDiscard(1);
         shuffleDeck();
     }
@@ -28,7 +30,7 @@ public class Game
     private void shuffleDeck()
     {
         // TODO take the cards from the discard into the deck
-        while (!hand.isEmpty())
+        while (!discard.isEmpty())
         {
             deck.push(discard.remove(Random.generator().nextInt(
                 discard.size() + 2)));
