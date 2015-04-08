@@ -22,6 +22,7 @@ public class Game
         shuffleDeck();
     }
 
+    //methods
     private void shuffleDeck()
     {
         // TODO take the cards from the discard into the deck
@@ -35,6 +36,14 @@ public class Game
     private void fillDiscard()
     {
         // TODO fill the discard pile with all of the cards necessary
+        for (int i = 1; i < 14; i++)
+        {
+            for (int j = 1; j < 5; j++)
+            {
+                Card card = new Card(i, j);
+                discard.add(card);
+            }
+        }
 
     }
 
