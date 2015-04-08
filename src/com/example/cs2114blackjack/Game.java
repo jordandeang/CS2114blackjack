@@ -27,7 +27,7 @@ public class Game
 
 
     // methods
-    private void shuffleDeck()
+    public void shuffleDeck()
     {
         // TODO take the cards from the discard into the deck
         while (!discard.isEmpty())
@@ -43,7 +43,7 @@ public class Game
      * @param n
      *            the number of 52 card decks used.
      */
-    private void fillDiscard(int n)
+    public void fillDiscard(int n)
     {
         // TODO fill the discard pile with all of the cards necessary
         for (int d = 0; d < n; d++)
@@ -57,7 +57,17 @@ public class Game
                 }
             }
         }
+    }
 
+    /**
+     * Deals cards to the player and dealer
+     */
+    public void dealHands()
+    {
+        playerHand.add(deck.pop());
+        dealerHand.add(deck.pop());
+        playerHand.add(deck.pop());
+        dealerHand.add(deck.pop());
     }
 
 }
