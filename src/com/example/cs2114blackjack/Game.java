@@ -73,15 +73,6 @@ public class Game
      */
     public void dealHands()
     {
-<<<<<<< HEAD
-        addCard(playerHand);
-        addCard(dealerHand);
-        addCard(playerHand);
-        addCard(dealerHand);
-    }
-
-
-=======
         hit(player);
         hit(dealer);
         hit(player);
@@ -111,7 +102,6 @@ public class Game
 
 
     // ----------------------------------------------------------
->>>>>>> 051598af7f475d38ad81f03191a18c647c969fe0
     /**
      * Hit the given player with a card, shuffle if the deck is empty
      *
@@ -148,32 +138,10 @@ public class Game
 
     public Player getPlayer()
     {
-<<<<<<< HEAD
-        addCard(playerHand);
+        return player;
     }
 
 
     // ----------------------------------------------------------
-    /**
-     * deals a card
-     *
-     * @param hand
-     *            which player gets the card
-     */
-    public void addCard(ArrayList<Card> hand)
-    {
-        if (!deck.isEmpty())
-        {
-            hand.add(deck.pop());
-        }
-        else
-        {
-            shuffleDeck();
-            hand.add(deck.pop());
-        }
-=======
-        return player;
->>>>>>> 051598af7f475d38ad81f03191a18c647c969fe0
-    }
 
 }
