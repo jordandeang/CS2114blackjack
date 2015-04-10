@@ -59,23 +59,46 @@ public class Game
         }
     }
 
+
     /**
      * Deals cards to the player and dealer
      */
     public void dealHands()
     {
-        playerHand.add(deck.pop());
-        dealerHand.add(deck.pop());
-        playerHand.add(deck.pop());
-        dealerHand.add(deck.pop());
+        addCard(playerHand);
+        addCard(dealerHand);
+        addCard(playerHand);
+        addCard(dealerHand);
     }
+
 
     /**
      * player chooses to hit
      */
     public void hit()
     {
-        playerHand.add(deck.pop());
+        addCard(playerHand);
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * deals a card
+     *
+     * @param hand
+     *            which player gets the card
+     */
+    public void addCard(ArrayList<Card> hand)
+    {
+        if (!deck.isEmpty())
+        {
+            hand.add(deck.pop());
+        }
+        else
+        {
+            shuffleDeck();
+            hand.add(deck.pop());
+        }
     }
 
 }
