@@ -2,63 +2,93 @@ package com.example.cs2114blackjack;
 
 public class Card
 {
-    private int    number;
-    private String suit;
-    private int    value;
-
-
-    private Card()
-    {
-
-    }
+    private int     number;
+    private String  suit;
+    private int     value;
+    private boolean faceDown;
 
 
     // ----------------------------------------------------------
     /**
      * Create a new Card object.
      *
-     * @param i
-     *            number
-     * @param j
-     *            suit
+     * @param number
+     *            number of card
+     * @param suitInt
+     *            integer corresponding to suit of cardF
      */
-    public Card(int i, int j)
+    public Card(int number, int suitInt)
     {
-        number = i;
-        suit = numberToSuit(j);
-        if (i < 10)
+        this.number = number;
+        suit = numberToSuit(suitInt);
+        if (number < 10)
         {
-            value = i;
+            value = number;
         }
         else
         {
             value = 10;
         }
+        faceDown = true;
 
     }
 
 
-    private String numberToSuit(int j)
+    private String numberToSuit(int suitInt)
     {
-        if (j == 1)
+        if (suitInt == 1)
         {
             return "c";
         }
-        else if (j == 2)
+        else if (suitInt == 2)
         {
             return "d";
         }
-        else if (j == 3)
+        else if (suitInt == 3)
         {
             return "h";
         }
-        else if (j == 4)
+        else if (suitInt == 4)
         {
             return "s";
         }
-        else
-        {
-            return null;
-        }
+        throw new IllegalArgumentException(
+            "Invalid suit number. Choose a number between 1 and 4.");
+    }
+
+
+    public void flipCardUp()
+    {
+        faceDown = false;
+    }
+
+
+    public void flipCardDown()
+    {
+        faceDown = true;
+    }
+
+
+    public boolean getFaceDirection()
+    {
+        return faceDown;
+    }
+
+
+    public int getValue()
+    {
+        return value;
+    }
+
+
+    public int getNumber()
+    {
+        return number;
+    }
+
+
+    public String getSuit()
+    {
+        return suit;
     }
 }
