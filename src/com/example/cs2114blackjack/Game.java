@@ -5,6 +5,17 @@ import sofia.util.Random;
 import java.util.Stack;
 import java.util.ArrayList;
 
+// -------------------------------------------------------------------------
+/**
+ *  Write a one-sentence summary of your class here.
+ *  Follow it with additional details about its purpose, what abstraction
+ *  it represents, and how to use it.
+ *
+ *  @author1
+ *  @author2
+ *  @author3
+ *  @version
+ */
 public class Game
 {
 
@@ -14,6 +25,7 @@ public class Game
     private Player           player;
     private Player           dealer;
     private static final int NUMBER_OF_DECKS = 1;
+    private boolean          gameOver;
 
 
     // initialize
@@ -23,6 +35,7 @@ public class Game
      */
     public Game()
     {
+        gameOver = false;
         discard = new ArrayList<Card>();
         deck = new Stack<Card>();
         fillDiscard();
@@ -34,7 +47,7 @@ public class Game
 
 
     // methods
-    // ----------------------------------------------------------
+
     /**
      * Shuffles the deck with cards from the discard pile
      */
@@ -119,6 +132,7 @@ public class Game
         p.addCard(card);
         if (p.getScore() > 21)
         {
+            gameOver = true;
             // TODO Bust, dealer wins, discard hands and redeal
         }
     }
