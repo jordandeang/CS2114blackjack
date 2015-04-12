@@ -155,6 +155,11 @@ public class Game
         return player;
     }
 
+    public boolean isGameOver()
+    {
+        return gameOver;
+    }
+
 
     // ----------------------------------------------------------
 
