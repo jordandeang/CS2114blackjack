@@ -27,6 +27,11 @@ public class Player
         score += card.getValue();
     }
 
+    public void clearHand() {
+        hand.clear();
+        score = 0;
+    }
+
 
     public ArrayList<Card> getHand()
     {

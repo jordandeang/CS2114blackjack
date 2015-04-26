@@ -1,6 +1,5 @@
 package com.example.cs2114blackjack;
 
-import java.util.EmptyStackException;
 import sofia.util.Random;
 import java.util.Stack;
 import java.util.ArrayList;
@@ -13,6 +12,8 @@ public class Game
     public Stack<Card>       deck;
     private Player           player;
     private Player           dealer;
+    private Player           winner;
+    private Player           currentPlayer;
     private static final int NUMBER_OF_DECKS = 1;
 
 
@@ -30,6 +31,7 @@ public class Game
         player = new Player();
         dealer = new Player();
         dealHands();
+        currentPlayer = player;
     }
 
 
@@ -42,8 +44,7 @@ public class Game
     {
         while (!discard.isEmpty())
         {
-            deck.push(discard.remove(Random.generator().nextInt(
-                discard.size() + 2)));
+            deck.push(discard.remove(Random.generator().nextInt(discard.size())));
         }
 
     }
@@ -86,18 +87,27 @@ public class Game
      */
     public void discardHands()
     {
-        for (int i = 0; i < player.getHand().size(); i++)
+        for (Card c : player.getHand())
         {
-            Card newCard = player.getHand().remove(i);
-            newCard.flipCardDown();
-            discard.add(newCard);
+            c.flipCardDown();
+            discard.add(c);
         }
-        for (int i = 0; i < dealer.getHand().size(); i++)
+        for (Card c : dealer.getHand())
         {
-            Card newCard = dealer.getHand().remove(i);
-            newCard.flipCardDown();
-            discard.add(newCard);
+            c.flipCardDown();
+            discard.add(c);
         }
+        player.clearHand();
+        dealer.clearHand();
+    }
+
+
+    public void newRound()
+    {
+        currentPlayer = player;
+        winner = null;
+        discardHands();
+        dealHands();
     }
 
 
@@ -119,14 +129,59 @@ public class Game
         p.addCard(card);
         if (p.getScore() > 21)
         {
-            // TODO Bust, dealer wins, discard hands and redeal
+            if (p.equals(dealer))
+            {
+                winner = player;
+
+            }
+            else
+            {
+                winner = dealer;
+            }
+            currentPlayer = dealer;
+        }
+        else if (p.getScore() == 21)
+        {
+            stand(p);
         }
     }
 
 
-    public void stand()
+    public void stand(Player p)
     {
-        // TODO figure out stand
+        if (p.equals(dealer))
+        {
+            if (dealer.getScore() > player.getScore())
+            {
+                winner = dealer;
+            }
+            else if (dealer.getScore() < player.getScore())
+            {
+                winner = player;
+            }
+            else
+            {
+                winner = null;
+            }
+        }
+        else
+        {
+            currentPlayer = dealer;
+            dealerTurn();
+        }
+    }
+
+
+    public void dealerTurn()
+    {
+        while (dealer.getScore() < player.getScore())
+        {
+            hit(dealer);
+        }
+        if (dealer.getScore() <= 21)
+        {
+            stand(dealer);
+        }
     }
 
 
@@ -139,6 +194,30 @@ public class Game
     public Player getPlayer()
     {
         return player;
+    }
+
+
+    public ArrayList<Card> getDiscard()
+    {
+        return discard;
+    }
+
+
+    public Stack<Card> getDeck()
+    {
+        return deck;
+    }
+
+
+    public Player getWinner()
+    {
+        return winner;
+    }
+
+
+    public Player getCurrentPlayer()
+    {
+        return currentPlayer;
     }
 
 }

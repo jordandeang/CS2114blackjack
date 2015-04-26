@@ -2,7 +2,5 @@
 <resources>
 
     <string name="app_name">CS2114blackjack</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
 </resources>
