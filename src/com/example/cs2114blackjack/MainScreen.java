@@ -13,8 +13,8 @@ public class MainScreen
     private TextView discard;
     private TextView deck;
     private TextView winner;
-    private Button hit;
-    private Button stand;
+    private Button   hit;
+    private Button   stand;
 
 
     public void initialize()
@@ -55,10 +55,13 @@ public class MainScreen
         {
             winner.setText("No winner");
         }
-        if (game.getCurrentPlayer().equals(game.getPlayer())) {
+        if (game.getCurrentPlayer().equals(game.getPlayer()))
+        {
             hit.setEnabled(true);
             stand.setEnabled(true);
-        }else {
+        }
+        else
+        {
             hit.setEnabled(false);
             stand.setEnabled(false);
         }
@@ -78,7 +81,9 @@ public class MainScreen
         updateGui();
     }
 
-    public void newRoundClicked() {
+
+    public void newRoundClicked()
+    {
         game.newRound();
         updateGui();
     }
