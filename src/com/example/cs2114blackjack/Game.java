@@ -34,7 +34,6 @@ public class Game
      */
     public Game()
     {
-        gameOver = false;
         discard = new ArrayList<Card>();
         deck = new Stack<Card>();
         fillDiscard();
