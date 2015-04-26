@@ -16,10 +16,13 @@ import java.util.ArrayList;
  */
 public class Game
 {
-
     // fields
-    private ArrayList<Card>  discard;
+
+    /**
+     * the deck
+     */
     public Stack<Card>       deck;
+    private ArrayList<Card>  discard;
     private Player           player;
     private Player           dealer;
     private Player           winner;
@@ -111,7 +114,9 @@ public class Game
         dealer.clearHand();
     }
 
-
+    /**
+     * this method starts a new round
+     */
     public void newRound()
     {
         currentPlayer = player;
@@ -156,7 +161,10 @@ public class Game
         }
     }
 
-
+    /**
+     * does not deal another card to the player
+     * @param p is a player
+     */
     public void stand(Player p)
     {
         if (p.equals(dealer))
@@ -181,7 +189,10 @@ public class Game
         }
     }
 
-
+    /**
+     * if the dealer's hand is lower than the player's, the dealer hits
+     * and stops once it reached 21 or is greater than the player's
+     */
     public void dealerTurn()
     {
         while (dealer.getScore() < player.getScore())
@@ -194,37 +205,49 @@ public class Game
         }
     }
 
-
+    /**
+     * @return returns the dealer
+     */
     public Player getDealer()
     {
         return dealer;
     }
 
-
+    /**
+     * @return returns the player
+     */
     public Player getPlayer()
     {
         return player;
     }
 
-
+    /**
+     * @return returns the discarded cards
+     */
     public ArrayList<Card> getDiscard()
     {
         return discard;
     }
 
-
+    /**
+     * @return returns the deck
+     */
     public Stack<Card> getDeck()
     {
         return deck;
     }
 
-
+    /**
+     * @return returns the winner
+     */
     public Player getWinner()
     {
         return winner;
     }
 
-
+    /**
+     * @return returns the current player
+     */
     public Player getCurrentPlayer()
     {
         return currentPlayer;

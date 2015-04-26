@@ -4,6 +4,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import sofia.app.Screen;
 
+// -------------------------------------------------------------------------
+/**
+ *  Write a one-sentence summary of your class here.
+ *  Follow it with additional details about its purpose, what abstraction
+ *  it represents, and how to use it.
+ *
+ *  @author1
+ *  @author2
+ *  @author3
+ *  @version
+ */
 public class MainScreen
     extends Screen
 {
@@ -67,21 +78,27 @@ public class MainScreen
         }
     }
 
-
+    /**
+     * executes when the user taps the "Hit" button
+     */
     public void hitClicked()
     {
         game.hit(game.getPlayer());
         updateGui();
     }
 
-
+    /**
+     * executes when the user taps the "Stand" button
+     */
     public void standClicked()
     {
         game.stand(game.getPlayer());
         updateGui();
     }
 
-
+    /**
+     * executes when the user taps the "New Round" button
+     */
     public void newRoundClicked()
     {
         game.newRound();
