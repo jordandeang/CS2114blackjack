@@ -98,19 +98,27 @@ public class Card
             "Invalid suit number. Choose a number between 1 and 4.");
     }
 
-
+    /**
+     * Changes the value of an ace to 1
+     */
     public void changeAceValue()
     {
         value = 1;
     }
 
 
+    /**
+     * reveals card to the player
+     */
     public void flipCardUp()
     {
         setImage(imageString);
     }
 
 
+    /**
+     * flips card upside down
+     */
     public void flipCardDown()
     {
         setImage("b2fv");
@@ -150,6 +158,11 @@ public class Card
     }
 
 
+    /**
+     * returns the string to retrieve the image
+     *
+     * @return the string to retrieve the image
+     */
     public String getImageString()
     {
         return imageString;

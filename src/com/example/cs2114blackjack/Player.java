@@ -51,6 +51,12 @@ public class Player
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Checks hand for an Ace
+     *
+     * @return An Ace with the value of 11 if it is in the hand
+     */
     public Card getUnchangedAce()
     {
         for (Card c : hand)
@@ -64,6 +70,10 @@ public class Player
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Calculates the players score
+     */
     public void recalculateScore()
     {
         score = 0;
