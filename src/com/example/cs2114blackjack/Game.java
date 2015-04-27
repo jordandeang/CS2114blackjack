@@ -91,10 +91,7 @@ public class Game
     {
         hit(dealer);
         hit(player);
-        if (deck.size() == 0)
-        {
-            shuffleDeck();
-        }
+        checkDeckIsEmpty();
         Card card = deck.pop();
         card.flipCardDown();
         dealer.addCard(card);
@@ -150,10 +147,7 @@ public class Game
      */
     public void hit(Player p)
     {
-        if (deck.size() == 0)
-        {
-            shuffleDeck();
-        }
+        checkDeckIsEmpty();
         Card card = deck.pop();
         card.flipCardUp();
         p.addCard(card);
@@ -234,6 +228,15 @@ public class Game
         if (dealer.getScore() <= 21)
         {
             stand(dealer);
+        }
+    }
+
+
+    private void checkDeckIsEmpty()
+    {
+        if (deck.isEmpty())
+        {
+            shuffleDeck();
         }
     }
 

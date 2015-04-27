@@ -107,6 +107,7 @@ public class Card
         value = 1;
     }
 
+
     /**
      * Sets the value of an ace to 11
      */

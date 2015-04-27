@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 // -------------------------------------------------------------------------
 /**
- * The MainScreen class is used to control the user interaction and display
- * of the game. This class links its GUI to the backend information handled
- * by the Game class.
+ * The MainScreen class is used to control the user interaction and display of
+ * the game. This class links its GUI to the backend information handled by the
+ * Game class.
  *
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
