@@ -1,23 +1,27 @@
 package com.example.cs2114blackjack;
 
+import sofia.graphics.RectangleShape;
+
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ * Write a one-sentence summary of your class here. Follow it with additional
+ * details about its purpose, what abstraction it represents, and how to use it.
  *
- *  @author1
- *  @author2
- *  @author3
- *  @version
+ * @author1
+ * @author2
+ * @author3
+ * @version
  */
 public class Card
+    extends RectangleShape
 {
     // fields
     private int     number;
     private String  suit;
     private int     value;
     private boolean faceDown;
+    private String  imageString;
+
 
     /**
      * Create a new Card object.
@@ -25,12 +29,13 @@ public class Card
      * @param number
      *            number of card
      * @param suitInt
-     *            integer corresponding to suit of cardF
+     *            integer corresponding to suit of card
      */
     public Card(int number, int suitInt)
     {
         this.number = number;
         suit = numberToSuit(suitInt);
+
         if (number < 10)
         {
             value = number;
@@ -40,12 +45,32 @@ public class Card
             value = 10;
         }
         faceDown = true;
-
+        imageString = suit;
+        if (number <= 10)
+        {
+            imageString += number;
+        }
+        else if (number == 11)
+        {
+            imageString += "j";
+        }
+        else if (number == 12)
+        {
+            imageString += "q";
+        }
+        else if (number == 13)
+        {
+            imageString += "k";
+        }
+        setImage(imageString);
     }
+
 
     /**
      * String method to display the suit
-     * @param suitInt is the number of suits
+     *
+     * @param suitInt
+     *            is the number of suits
      */
     private String numberToSuit(int suitInt)
     {
@@ -69,6 +94,7 @@ public class Card
             "Invalid suit number. Choose a number between 1 and 4.");
     }
 
+
     /**
      * method to flip the card up
      */
@@ -76,6 +102,7 @@ public class Card
     {
         faceDown = false;
     }
+
 
     /**
      * method to flip card down
@@ -85,8 +112,10 @@ public class Card
         faceDown = true;
     }
 
+
     /**
      * method to see if the card is face up or face down
+     *
      * @return returns the face direction
      */
     public boolean getFaceDirection()
@@ -94,8 +123,10 @@ public class Card
         return faceDown;
     }
 
+
     /**
      * returns the value
+     *
      * @return returns the value of the card
      */
     public int getValue()
@@ -103,8 +134,10 @@ public class Card
         return value;
     }
 
+
     /**
      * returns the number
+     *
      * @return returns the number of the card
      */
     public int getNumber()
@@ -112,12 +145,20 @@ public class Card
         return number;
     }
 
+
     /**
      * returns the suit
+     *
      * @return returns the suit of the card
      */
     public String getSuit()
     {
         return suit;
+    }
+
+
+    public String getImageString()
+    {
+        return imageString;
     }
 }

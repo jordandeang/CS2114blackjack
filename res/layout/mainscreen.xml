@@ -6,44 +6,11 @@
     android:orientation="vertical"
     tools:context=".MainScreen" >
 
-    <TextView
-        android:id="@+id/dealerHandLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dealer Hand:" />
-
-    <Button
-        android:id="@+id/hit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="Hit" />
-
-    <TextView
-        android:id="@+id/playerHandLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="Player Hand:" />
-
-    <TextView
-        android:id="@+id/dealerHand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/dealerHandLabel"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/playerHand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/playerHandLabel"
-        android:layout_below="@+id/playerHandLabel"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <sofia.graphics.ShapeView
+        android:id="@+id/shapeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonLayout" />
 
     <TextView
         android:id="@+id/discard"
@@ -63,30 +30,67 @@
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
-        android:id="@+id/stand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/hit"
-        android:text="Stand" />
-
     <TextView
         android:id="@+id/winner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/playerHandLabel"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginBottom="27dp"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/newRound"
+    <TextView
+        android:id="@+id/dealerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Dealer"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/playerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="You"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <Button
+        android:id="@+id/newRound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/stand"
+        android:layout_centerHorizontal="true"
         android:text="New Round" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/newRound" >
+
+        <Button
+            android:id="@+id/hit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/newRound"
+            android:layout_alignParentLeft="true"
+            android:layout_weight=".5"
+            android:text="Hit" />
+
+        <Button
+            android:id="@+id/stand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/newRound"
+            android:layout_alignParentRight="true"
+            android:layout_weight=".5"
+            android:text="Stand" />
+    </LinearLayout>
 
 </RelativeLayout>
