@@ -11,17 +11,10 @@ import android.widget.TextView;
  * of the game. This class links its GUI to the backend information handled
  * by the Game class.
  *
-<<<<<<< HEAD
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
-=======
- * @author1 Jordan Deang (jdeang)
- * @author2 Jason Davis (jdavis7)
- * @author3
- * @version
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
  */
 public class MainScreen
     extends ShapeScreen

@@ -7,17 +7,10 @@ import sofia.graphics.RectangleShape;
  * The Card class handles the data needed to be stored on each individual
  * card. This includes the number, suit, value, and Image specifics.
  *
-<<<<<<< HEAD
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
-=======
- * @author1 Jordan Deang (jdeang)
- * @author2 Jason Davis (jdavis7)
- * @author3
- * @version
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
  */
 public class Card
     extends RectangleShape
@@ -106,39 +99,23 @@ public class Card
     }
 
     /**
-<<<<<<< HEAD
-     * Makes the ace value 1
-=======
      * Changes the value of an ace to 1
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
      */
     public void changeAceValue()
     {
         value = 1;
     }
 
-<<<<<<< HEAD
-    /**
-     * Flips a card up that is face down
-=======
-
     /**
      * reveals card to the player
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
      */
     public void flipCardUp()
     {
         setImage(imageString);
     }
 
-<<<<<<< HEAD
     /**
      * Flips a card down that is face up
-=======
-
-    /**
-     * flips card upside down
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
      */
     public void flipCardDown()
     {
@@ -178,16 +155,9 @@ public class Card
         return suit;
     }
 
-<<<<<<< HEAD
-    /**
-     * @return the imageString
-=======
-
     /**
      * returns the string to retrieve the image
-     *
      * @return the string to retrieve the image
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
      */
     public String getImageString()
     {

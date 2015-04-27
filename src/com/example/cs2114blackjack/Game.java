@@ -10,17 +10,10 @@ import java.util.ArrayList;
  * managing the dealer AI, the player, and the actions that either can call.
  * Used in conjunction with the MainScreen class to play on the android.
  *
-<<<<<<< HEAD
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
-=======
- * @author1 Jordan Deang (jdeang)
- * @author2 Jason Davis (jdavis7)
- * @author3
- * @version 1.0
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
  */
 public class Game
 {
@@ -221,12 +214,8 @@ public class Game
      */
     public void dealerTurn()
     {
-<<<<<<< HEAD
         card.flipCardUp();
         while (dealer.getScore() < player.getScore())
-=======
-        while (dealer.getScore() < 17)
->>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
         {
             hit(dealer);
         }
