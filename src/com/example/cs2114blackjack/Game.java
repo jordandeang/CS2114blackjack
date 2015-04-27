@@ -141,18 +141,26 @@ public class Game
         p.addCard(card);
         if (p.getScore() > 21)
         {
-            if (p.equals(dealer))
+            if (p.getUnchangedAce() != null)
             {
-                winner = player;
-
+                p.getUnchangedAce().changeAceValue();
+                p.calculateScore();
             }
             else
             {
-                winner = dealer;
+                if (p.equals(dealer))
+                {
+                    winner = player;
+
+                }
+                else
+                {
+                    winner = dealer;
+                }
+                currentPlayer = dealer;
             }
-            currentPlayer = dealer;
         }
-        else if (p.getScore() == 21)
+        if (p.getScore() == 21)
         {
             stand(p);
         }

@@ -16,11 +16,11 @@ public class Card
     extends RectangleShape
 {
     // fields
-    private int    number;
-    private String suit;
-    private int    value;
-    private String imageString;
-    private static final float CARD_WIDTH = 71;
+    private int                number;
+    private String             suit;
+    private int                value;
+    private String             imageString;
+    private static final float CARD_WIDTH  = 71;
     private static final float CARD_HEIGHT = 96;
 
 
@@ -34,11 +34,10 @@ public class Card
      */
     public Card(int number, int suitInt)
     {
-        super(0, 0, CARD_WIDTH*3, CARD_HEIGHT*3);
+        super(0, 0, CARD_WIDTH * 3, CARD_HEIGHT * 3);
         this.number = number;
         suit = numberToSuit(suitInt);
-
-        if (number < 10)
+        if (number < 10 && number > 1)
         {
             value = number;
         }
@@ -96,6 +95,10 @@ public class Card
     }
 
 
+    public void changeAceValue()
+    {
+        value = 1;
+    }
 
 
     /**

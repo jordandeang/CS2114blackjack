@@ -46,7 +46,7 @@ public class MainScreen
         add(background);
         if (game.getDeck().size() > 0)
         {
-            for (int i = 0; i < (game.getDeck().size() / 15) + 1; i++)
+            for (int i = 0; i < (game.getDeck().size() / 30) + 1; i++)
             {
                 RectangleShape cardBack =
                     new RectangleShape(550, 500 + (10 * i), 550 + (71 * 3), 500
@@ -57,7 +57,7 @@ public class MainScreen
         }
         if (game.getDiscard().size() > 0)
         {
-            for (int i = 0; i < (game.getDiscard().size() / 15) + 1; i++)
+            for (int i = 0; i < (game.getDiscard().size() / 30) + 1; i++)
             {
                 RectangleShape cardBack =
                     new RectangleShape(800, 500 + (10 * i), 800 + (71 * 3), 500
