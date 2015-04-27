@@ -19,10 +19,6 @@ public class MainScreen
     extends ShapeScreen
 {
     private Game           game;
-    private TextView       dealerHand;
-    private TextView       playerHand;
-    private TextView       discard;
-    private TextView       deck;
     private TextView       winner;
     private Button         hit;
     private Button         stand;
@@ -35,9 +31,6 @@ public class MainScreen
     public void initialize()
     {
         game = new Game();
-        background = new RectangleShape(0, 0, getWidth(), getHeight());
-        background.setImage("blackjacktable");
-        add(background);
         updateGui();
     }
 
@@ -47,8 +40,44 @@ public class MainScreen
      */
     private void updateGui()
     {
-        discard.setText(game.getDiscard().size() + " cards in the discard");
-        deck.setText(game.getDeck().size() + " cards in the deck");
+        clear();
+        background = new RectangleShape(0, 0, getWidth(), getHeight());
+        background.setImage("blackjacktable");
+        add(background);
+        if (game.getDeck().size() > 0)
+        {
+            for (int i = 0; i < (game.getDeck().size() / 15) + 1; i++)
+            {
+                RectangleShape cardBack =
+                    new RectangleShape(550, 500 + (10 * i), 550 + (71 * 3), 500
+                        + (10 * i) + (96 * 3));
+                cardBack.setImage("b2fv");
+                add(cardBack);
+            }
+        }
+        if (game.getDiscard().size() > 0)
+        {
+            for (int i = 0; i < (game.getDiscard().size() / 15) + 1; i++)
+            {
+                RectangleShape cardBack =
+                    new RectangleShape(800, 500 + (10 * i), 800 + (71 * 3), 500
+                        + (10 * i) + (96 * 3));
+                cardBack.setImage("b2fv");
+                add(cardBack);
+            }
+        }
+        for (int i = 0; i < game.getDealer().getHand().size(); i++)
+        {
+            Card card = game.getDealer().getHand().get(i);
+            card.setPosition(160 + (50 * i), 320);
+            add(card);
+        }
+        for (int i = 0; i < game.getPlayer().getHand().size(); i++)
+        {
+            Card card = game.getPlayer().getHand().get(i);
+            card.setPosition(160 + (50 * i), 960);
+            add(card);
+        }
         if (game.getWinner() != null)
         {
             if (game.getWinner().equals(game.getDealer()))

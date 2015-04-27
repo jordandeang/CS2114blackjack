@@ -16,11 +16,12 @@ public class Card
     extends RectangleShape
 {
     // fields
-    private int     number;
-    private String  suit;
-    private int     value;
-    private boolean faceDown;
-    private String  imageString;
+    private int    number;
+    private String suit;
+    private int    value;
+    private String imageString;
+    private static final float CARD_WIDTH = 71;
+    private static final float CARD_HEIGHT = 96;
 
 
     /**
@@ -33,6 +34,7 @@ public class Card
      */
     public Card(int number, int suitInt)
     {
+        super(0, 0, CARD_WIDTH*3, CARD_HEIGHT*3);
         this.number = number;
         suit = numberToSuit(suitInt);
 
@@ -44,7 +46,6 @@ public class Card
         {
             value = 10;
         }
-        faceDown = true;
         imageString = suit;
         if (number <= 10)
         {
@@ -95,33 +96,6 @@ public class Card
     }
 
 
-    /**
-     * method to flip the card up
-     */
-    public void flipCardUp()
-    {
-        faceDown = false;
-    }
-
-
-    /**
-     * method to flip card down
-     */
-    public void flipCardDown()
-    {
-        faceDown = true;
-    }
-
-
-    /**
-     * method to see if the card is face up or face down
-     *
-     * @return returns the face direction
-     */
-    public boolean getFaceDirection()
-    {
-        return faceDown;
-    }
 
 
     /**
