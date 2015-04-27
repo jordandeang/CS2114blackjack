@@ -10,10 +10,17 @@ import java.util.ArrayList;
  * managing the dealer AI, the player, and the actions that either can call.
  * Used in conjunction with the MainScreen class to play on the android.
  *
+<<<<<<< HEAD
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
+=======
+ * @author1 Jordan Deang (jdeang)
+ * @author2 Jason Davis (jdavis7)
+ * @author3
+ * @version 1.0
+>>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
  */
 public class Game
 {
@@ -208,13 +215,18 @@ public class Game
 
 
     /**
-     * If the dealer's hand is lower than the player's, the dealer hits and
-     * stops once it reached 21 or is greater than the player's
+     * If the dealer's hand is lower than 17, the dealer hits and
+     * stops once it reached 21 or is greater than or equal to 17.
+     * Our game utilizes the "stand on 17" rule for the dealer
      */
     public void dealerTurn()
     {
+<<<<<<< HEAD
         card.flipCardUp();
         while (dealer.getScore() < player.getScore())
+=======
+        while (dealer.getScore() < 17)
+>>>>>>> 9d03ddfd681562a4cad23d8cd98154086ab68c96
         {
             hit(dealer);
         }
