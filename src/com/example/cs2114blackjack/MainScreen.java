@@ -27,14 +27,18 @@ public class MainScreen
     private Button   hit;
     private Button   stand;
 
-
+    /**
+     * This method initializes the screen
+     */
     public void initialize()
     {
         game = new Game();
         updateGui();
     }
 
-
+    /**
+     * This method constantly updates the GUI
+     */
     private void updateGui()
     {
         discard.setText(game.getDiscard().size() + " cards in the discard");

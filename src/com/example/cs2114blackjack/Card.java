@@ -19,8 +19,6 @@ public class Card
     private int     value;
     private boolean faceDown;
 
-
-    // ----------------------------------------------------------
     /**
      * Create a new Card object.
      *
@@ -122,5 +120,4 @@ public class Card
     {
         return suit;
     }
-
 }

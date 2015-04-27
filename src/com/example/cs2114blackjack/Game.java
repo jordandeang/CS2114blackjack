@@ -62,7 +62,6 @@ public class Game
 
     }
 
-
     /**
      * Fills the discard pile with the given amount of decks.
      */
@@ -81,7 +80,6 @@ public class Game
         }
     }
 
-
     /**
      * Deals cards to the player and dealer
      */
@@ -93,8 +91,6 @@ public class Game
         hit(dealer);
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Discards hands into the discard pile
      */
@@ -125,8 +121,6 @@ public class Game
         dealHands();
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Hit the given player with a card, shuffle if the deck is empty
      *
