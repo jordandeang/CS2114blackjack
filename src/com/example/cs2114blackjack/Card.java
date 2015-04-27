@@ -75,8 +75,10 @@ public class Card
      *
      * @param suitInt
      *            is the number of suits
+     * @return
+     *            returns the suit in the form of a string
      */
-    private String numberToSuit(int suitInt)
+    public String numberToSuit(int suitInt)
     {
         if (suitInt == 1)
         {
