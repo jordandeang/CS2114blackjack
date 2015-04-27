@@ -23,6 +23,7 @@ public class MainScreen
     private TextView       winner;
     private Button         hit;
     private Button         stand;
+    private Button         newRound;
     private RectangleShape background;
 
 
@@ -39,7 +40,9 @@ public class MainScreen
 
 
     /**
-     * This method constantly updates the GUI
+     * This method updates the GUI by first clearing it and then adding the
+     * background and the appropriate card rectangle shapes. It also disabled
+     * the buttons if the player is not the current player.
      */
     private void updateGui()
     {
@@ -91,7 +94,7 @@ public class MainScreen
             }
             else if (game.getWinner().equals(game.getPlayer()))
             {
-                winner.setText("Player wins!");
+                winner.setText("You win!");
             }
         }
         else
@@ -139,4 +142,67 @@ public class MainScreen
         game.newRound();
         updateGui();
     }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the hit button for testing purposes. Allows the test class to
+     * check if it is enabled or not.
+     *
+     * @return the hit button
+     */
+    public Button getHit()
+    {
+        return hit;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the stand button for testing purposes. Allows the test class to
+     * check if it is enabled or not.
+     *
+     * @return the stand button
+     */
+    public Button getStand()
+    {
+        return stand;
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the newRound button for testing purposes. Allows the test class to
+     * check if it is enabled or not.
+     *
+     * @return the newRound button
+     */
+    public Button getNewRound()
+    {
+        return newRound;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the game for this screen for testing purposes.
+     *
+     * @return the game of this screen
+     */
+    public Game getGame()
+    {
+        return game;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the background rectangle shape for testing purposes.
+     *
+     * @return the background rectangle shape
+     */
+    public RectangleShape getBackground()
+    {
+        return background;
+    }
+
 }
