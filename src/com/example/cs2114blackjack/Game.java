@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Used in conjunction with the MainScreen class to play on the android.
  *
  * @author1 Jordan Deang (jdeang)
- * @author2
+ * @author2 Jason Davis (jdavis7)
  * @author3
  * @version 1.0
  */

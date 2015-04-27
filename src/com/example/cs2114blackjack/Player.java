@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * details about its purpose, what abstraction it represents, and how to use it.
  *
  * @author1
- * @author2
+ * @author2 Jason Davis (jdavis7)
  * @author3
  * @version
  */
