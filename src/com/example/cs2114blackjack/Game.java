@@ -24,7 +24,6 @@ public class Game
      */
     private Stack<Card>      deck;
     private ArrayList<Card>  discard;
-    private Card             card;
     private Player           player;
     private Player           dealer;
     private Player           winner;
@@ -45,7 +44,6 @@ public class Game
         shuffleDeck();
         player = new Player();
         dealer = new Player();
-        card = deck.pop();
         dealHands();
         currentPlayer = player;
     }
@@ -77,8 +75,8 @@ public class Game
             {
                 for (int j = 1; j < 5; j++)
                 {
-                    Card card2 = new Card(i, j);
-                    discard.add(card2);
+                    Card card = new Card(i, j);
+                    discard.add(card);
                 }
             }
         }
@@ -86,17 +84,17 @@ public class Game
 
 
     /**
-     * Deals cards to the player and dealer
+     * Deals cards to the player and dealer, giving the dealer one face down
+     * card.
      */
     public void dealHands()
     {
-        hit(player);
         hit(dealer);
         hit(player);
-        //hit(dealer);
-
+        Card card = deck.pop();
         card.flipCardDown();
         dealer.addCard(card);
+        hit(player);
     }
 
 
@@ -108,11 +106,19 @@ public class Game
         for (Card c : player.getHand())
         {
             c.flipCardDown();
+            if (c.getNumber() == 1 && c.getValue() == 1)
+            {
+                c.revertAceValue();
+            }
             discard.add(c);
         }
         for (Card c : dealer.getHand())
         {
             c.flipCardDown();
+            if (c.getNumber() == 1 && c.getValue() == 1)
+            {
+                c.revertAceValue();
+            }
             discard.add(c);
         }
         player.clearHand();
@@ -144,9 +150,9 @@ public class Game
         {
             shuffleDeck();
         }
-        Card card3 = deck.pop();
-        card3.flipCardUp();
-        p.addCard(card3);
+        Card card = deck.pop();
+        card.flipCardUp();
+        p.addCard(card);
         if (p.getScore() > 21)
         {
             if (p.getUnchangedAce() != null)
@@ -208,13 +214,15 @@ public class Game
 
 
     /**
-     * If the dealer's hand is lower than 17, the dealer hits and
-     * stops once it reached 21 or is greater than or equal to 17.
-     * Our game utilizes the "stand on 17" rule for the dealer
+     * The dealer flips his cards up and then hits until he beats the player,
+     * hits 21, or busts
      */
     public void dealerTurn()
     {
-        card.flipCardUp();
+        for (Card c : dealer.getHand())
+        {
+            c.flipCardUp();
+        }
         while (dealer.getScore() < player.getScore())
         {
             hit(dealer);
