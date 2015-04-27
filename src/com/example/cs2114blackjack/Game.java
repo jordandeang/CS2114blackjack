@@ -28,7 +28,7 @@ public class Game
     private Player           dealer;
     private Player           winner;
     private Player           currentPlayer;
-    private static final int NUMBER_OF_DECKS = 3;
+    private static int NUMBER_OF_DECKS = 3;
 
 
     // initialize
@@ -48,26 +48,25 @@ public class Game
         currentPlayer = player;
     }
 
-
     // methods
 
     /**
      * Shuffles the deck with cards from the discard pile
      */
-    private void shuffleDeck()
+    public void shuffleDeck()
     {
         while (!discard.isEmpty())
         {
-            deck.push(discard.remove(Random.generator().nextInt(discard.size())));
+            deck.push(discard.remove(Random.generator().
+                nextInt(discard.size())));
         }
 
     }
 
-
     /**
      * Fills the discard pile with the given amount of decks.
      */
-    private void fillDiscard()
+    public void fillDiscard()
     {
         for (int d = 0; d < NUMBER_OF_DECKS; d++)
         {
