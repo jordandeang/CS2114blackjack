@@ -4,10 +4,10 @@ import sofia.graphics.RectangleShape;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * The Card class handles the data needed to be stored on each individual
+ * card. This includes the number, suit, value, and Image specifics.
  *
- * @author1
+ * @author1 Jordan Deang (jdeang)
  * @author2 Jason Davis (jdavis7)
  * @author3
  * @version

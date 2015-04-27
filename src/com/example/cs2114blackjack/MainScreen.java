@@ -7,10 +7,11 @@ import android.widget.TextView;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * The MainScreen class is used to control the user interaction and display
+ * of the game. This class links its GUI to the backend information handled
+ * by the Game class.
  *
- * @author1
+ * @author1 Jordan Deang (jdeang)
  * @author2 Jason Davis (jdavis7)
  * @author3
  * @version

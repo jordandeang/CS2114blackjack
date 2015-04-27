@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * The Player class holds the methods and fields used by both the dealer and
+ * the player use to play the game.
  *
- * @author1
+ * @author1 Jordan Deang (jdeang)
  * @author2 Jason Davis (jdavis7)
  * @author3
  * @version
