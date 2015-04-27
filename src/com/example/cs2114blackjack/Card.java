@@ -7,10 +7,10 @@ import sofia.graphics.RectangleShape;
  * Write a one-sentence summary of your class here. Follow it with additional
  * details about its purpose, what abstraction it represents, and how to use it.
  *
- * @author1
- * @author2
- * @author3
- * @version
+ * @author1 Jason Davis (jdavis7)
+ * @author2 Jordan Deang (jdeang)
+ * @author3 Tommy Hyres (tommy085)
+ * @version 2015.04.27
  */
 public class Card
     extends RectangleShape
@@ -98,19 +98,25 @@ public class Card
             "Invalid suit number. Choose a number between 1 and 4.");
     }
 
-
+    /**
+     * Makes the ace value 1
+     */
     public void changeAceValue()
     {
         value = 1;
     }
 
-
+    /**
+     * Flips a card up that is face down
+     */
     public void flipCardUp()
     {
         setImage(imageString);
     }
 
-
+    /**
+     * Flips a card down that is face up
+     */
     public void flipCardDown()
     {
         setImage("b2fv");
@@ -149,7 +155,9 @@ public class Card
         return suit;
     }
 
-
+    /**
+     * @return the imageString
+     */
     public String getImageString()
     {
         return imageString;

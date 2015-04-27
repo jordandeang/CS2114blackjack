@@ -7,10 +7,10 @@ import java.util.ArrayList;
  * Write a one-sentence summary of your class here. Follow it with additional
  * details about its purpose, what abstraction it represents, and how to use it.
  *
- * @author1
- * @author2
- * @author3
- * @version
+ * @author1 Jason Davis (jdavis7)
+ * @author2 Jordan Deang (jdeang)
+ * @author3 Tommy Hyres (tommy085)
+ * @version 2015.04.27
  */
 public class Player
 {
@@ -50,7 +50,10 @@ public class Player
         score = 0;
     }
 
-
+    /**
+     * Makes the value of the ace a 1 or 11
+     * @return returns the card or null
+     */
     public Card getUnchangedAce()
     {
         for (Card c : hand)
@@ -63,7 +66,9 @@ public class Player
         return null;
     }
 
-
+    /**
+     * recalculates the score
+     */
     public void recalculateScore()
     {
         score = 0;

@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * managing the dealer AI, the player, and the actions that either can call.
  * Used in conjunction with the MainScreen class to play on the android.
  *
- * @author1 Jordan Deang (jdeang)
- * @author2
- * @author3
- * @version 1.0
+ * @author1 Jason Davis (jdavis7)
+ * @author2 Jordan Deang (jdeang)
+ * @author3 Tommy Hyres (tommy085)
+ * @version 2015.04.27
  */
 public class Game
 {
@@ -24,6 +24,7 @@ public class Game
      */
     private Stack<Card>      deck;
     private ArrayList<Card>  discard;
+    private Card             card;
     private Player           player;
     private Player           dealer;
     private Player           winner;
@@ -44,6 +45,7 @@ public class Game
         shuffleDeck();
         player = new Player();
         dealer = new Player();
+        card = deck.pop();
         dealHands();
         currentPlayer = player;
     }
@@ -75,8 +77,8 @@ public class Game
             {
                 for (int j = 1; j < 5; j++)
                 {
-                    Card card = new Card(i, j);
-                    discard.add(card);
+                    Card card2 = new Card(i, j);
+                    discard.add(card2);
                 }
             }
         }
@@ -91,7 +93,10 @@ public class Game
         hit(player);
         hit(dealer);
         hit(player);
-        hit(dealer);
+        //hit(dealer);
+
+        card.flipCardDown();
+        dealer.addCard(card);
     }
 
 
@@ -139,9 +144,9 @@ public class Game
         {
             shuffleDeck();
         }
-        Card card = deck.pop();
-        card.flipCardUp();
-        p.addCard(card);
+        Card card3 = deck.pop();
+        card3.flipCardUp();
+        p.addCard(card3);
         if (p.getScore() > 21)
         {
             if (p.getUnchangedAce() != null)
@@ -208,6 +213,7 @@ public class Game
      */
     public void dealerTurn()
     {
+        card.flipCardUp();
         while (dealer.getScore() < player.getScore())
         {
             hit(dealer);
