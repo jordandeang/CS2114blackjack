@@ -37,7 +37,11 @@ public class Card
         super(0, 0, CARD_WIDTH * 3, CARD_HEIGHT * 3);
         this.number = number;
         suit = numberToSuit(suitInt);
-        if (number < 10 && number > 1)
+        if (number == 1)
+        {
+            value = 11;
+        }
+        else if (number < 10)
         {
             value = number;
         }
@@ -62,7 +66,7 @@ public class Card
         {
             imageString += "k";
         }
-        setImage(imageString);
+        flipCardDown();
     }
 
 
@@ -98,6 +102,18 @@ public class Card
     public void changeAceValue()
     {
         value = 1;
+    }
+
+
+    public void flipCardUp()
+    {
+        setImage(imageString);
+    }
+
+
+    public void flipCardDown()
+    {
+        setImage("b2fv");
     }
 
 

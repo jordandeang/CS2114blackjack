@@ -37,7 +37,7 @@ public class Player
     public void addCard(Card card)
     {
         hand.add(card);
-        calculateScore();
+        score += card.getValue();
     }
 
 
@@ -55,7 +55,7 @@ public class Player
     {
         for (Card c : hand)
         {
-            if (c.getNumber() == 1 && c.getValue() == 10)
+            if (c.getNumber() == 1 && c.getValue() == 11)
             {
                 return c;
             }
@@ -64,7 +64,7 @@ public class Player
     }
 
 
-    public void calculateScore()
+    public void recalculateScore()
     {
         score = 0;
         for (Card c : hand)

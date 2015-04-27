@@ -31,6 +31,8 @@ public class MainScreen
     public void initialize()
     {
         game = new Game();
+        background = new RectangleShape(0, 0, getWidth(), getHeight());
+        background.setImage("blackjacktable");
         updateGui();
     }
 
@@ -41,39 +43,41 @@ public class MainScreen
     private void updateGui()
     {
         clear();
-        background = new RectangleShape(0, 0, getWidth(), getHeight());
-        background.setImage("blackjacktable");
         add(background);
         if (game.getDeck().size() > 0)
         {
             for (int i = 0; i < (game.getDeck().size() / 30) + 1; i++)
             {
-                RectangleShape cardBack =
-                    new RectangleShape(550, 500 + (10 * i), 550 + (71 * 3), 500
-                        + (10 * i) + (96 * 3));
-                cardBack.setImage("b2fv");
-                add(cardBack);
+                // Loops through deck and adds a rectangle card that is already
+                // flipped down for every 30 cards
+                Card card = game.getDeck().get(i);
+                card.setPosition(650, 600 + (10 * i));
+                add(card);
             }
         }
         if (game.getDiscard().size() > 0)
         {
             for (int i = 0; i < (game.getDiscard().size() / 30) + 1; i++)
             {
-                RectangleShape cardBack =
-                    new RectangleShape(800, 500 + (10 * i), 800 + (71 * 3), 500
-                        + (10 * i) + (96 * 3));
-                cardBack.setImage("b2fv");
-                add(cardBack);
+                // Loops through the discard and adds a rectangle card that is
+                // already flipped down for every 30 cards
+                Card card = game.getDiscard().get(i);
+                card.setPosition(900, 600 + (10 * i));
+                add(card);
             }
         }
         for (int i = 0; i < game.getDealer().getHand().size(); i++)
         {
+            // Loops through the dealer's hand and adds the rectangle images to
+            // the screen
             Card card = game.getDealer().getHand().get(i);
             card.setPosition(160 + (50 * i), 320);
             add(card);
         }
         for (int i = 0; i < game.getPlayer().getHand().size(); i++)
         {
+            // Loops through the player's hand and adds the rectangle images to
+            // the screen
             Card card = game.getPlayer().getHand().get(i);
             card.setPosition(160 + (50 * i), 960);
             add(card);

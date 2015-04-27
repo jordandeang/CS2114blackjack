@@ -102,10 +102,12 @@ public class Game
     {
         for (Card c : player.getHand())
         {
+            c.flipCardDown();
             discard.add(c);
         }
         for (Card c : dealer.getHand())
         {
+            c.flipCardDown();
             discard.add(c);
         }
         player.clearHand();
@@ -138,13 +140,14 @@ public class Game
             shuffleDeck();
         }
         Card card = deck.pop();
+        card.flipCardUp();
         p.addCard(card);
         if (p.getScore() > 21)
         {
             if (p.getUnchangedAce() != null)
             {
                 p.getUnchangedAce().changeAceValue();
-                p.calculateScore();
+                p.recalculateScore();
             }
             else
             {
@@ -176,7 +179,7 @@ public class Game
      */
     public void stand(Player p)
     {
-        if (p.equals(dealer))
+        if (p.equals(dealer) && currentPlayer.equals(dealer))
         {
             if (dealer.getScore() > player.getScore())
             {
@@ -191,7 +194,7 @@ public class Game
                 winner = null;
             }
         }
-        else
+        if (p.equals(player))
         {
             currentPlayer = dealer;
             dealerTurn();
