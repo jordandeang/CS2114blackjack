@@ -91,6 +91,10 @@ public class Game
     {
         hit(dealer);
         hit(player);
+        if (deck.size() == 0)
+        {
+            shuffleDeck();
+        }
         Card card = deck.pop();
         card.flipCardDown();
         dealer.addCard(card);

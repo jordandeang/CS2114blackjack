@@ -110,7 +110,7 @@ public class Card
 
     public void revertAceValue()
     {
-
+        value = 11;
     }
 
 
