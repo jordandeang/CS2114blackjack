@@ -203,12 +203,13 @@ public class Game
 
 
     /**
-     * If the dealer's hand is lower than the player's, the dealer hits and
-     * stops once it reached 21 or is greater than the player's
+     * If the dealer's hand is lower than 17, the dealer hits and
+     * stops once it reached 21 or is greater than or equal to 17.
+     * Our game utilizes the "stand on 17" rule for the dealer
      */
     public void dealerTurn()
     {
-        while (dealer.getScore() < player.getScore())
+        while (dealer.getScore() < 17)
         {
             hit(dealer);
         }
