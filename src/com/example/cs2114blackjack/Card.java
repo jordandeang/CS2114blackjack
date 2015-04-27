@@ -4,8 +4,8 @@ import sofia.graphics.RectangleShape;
 
 // -------------------------------------------------------------------------
 /**
- * The Card class handles the data needed to be stored on each individual
- * card. This includes the number, suit, value, and Image specifics.
+ * The Card class handles the data needed to be stored on each individual card.
+ * This includes the number, suit, value, and Image specifics.
  *
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
@@ -98,6 +98,7 @@ public class Card
             "Invalid suit number. Choose a number between 1 and 4.");
     }
 
+
     /**
      * Changes the value of an ace to 1
      */
@@ -106,6 +107,13 @@ public class Card
         value = 1;
     }
 
+
+    public void revertAceValue()
+    {
+
+    }
+
+
     /**
      * reveals card to the player
      */
@@ -113,6 +121,7 @@ public class Card
     {
         setImage(imageString);
     }
+
 
     /**
      * Flips a card down that is face up
@@ -155,8 +164,10 @@ public class Card
         return suit;
     }
 
+
     /**
      * returns the string to retrieve the image
+     *
      * @return the string to retrieve the image
      */
     public String getImageString()
