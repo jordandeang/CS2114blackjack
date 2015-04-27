@@ -100,7 +100,7 @@ public class Card
 
 
     /**
-     * Changes the value of an ace to 1
+     * Sets the value of an ace to 1
      */
     public void changeAceValue()
     {
@@ -108,6 +108,9 @@ public class Card
     }
 
 
+    /**
+     * Sets the value of an ace to 11
+     */
     public void revertAceValue()
     {
         value = 11;

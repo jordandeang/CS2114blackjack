@@ -1,19 +1,25 @@
 package com.example.cs2114blackjack;
 
-import student.TestCase;
-
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ * Write a one-sentence summary of your class here. Follow it with additional
+ * details about its purpose, what abstraction it represents, and how to use it.
  *
- *  @author1 Jason Davis (jdavis7)
- *  @author2 Jordan Deang (jdeang)
- *  @author3 Tommy Hyres (tommy085)
- *  @version 2015.04.27
+ * @author1 Jason Davis (jdavis7)
+ * @author2 Jordan Deang (jdeang)
+ * @author3 Tommy Hyres (tommy085)
+ * @version 2015.04.27
  */
-public class MainScreenTest extends TestCase
+public class MainScreenTest
+    extends student.AndroidTestCase<MainScreen>
 {
-
+    /**
+     * Test cases that extend AndroidTestCase must have a parameterless
+     * constructor that calls super() and passes it the screen/activity class
+     * being tested.
+     */
+    public MainScreenTest()
+    {
+        super(MainScreen.class);
+    }
 }
