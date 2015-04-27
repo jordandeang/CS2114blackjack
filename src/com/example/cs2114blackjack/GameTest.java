@@ -13,5 +13,19 @@ package com.example.cs2114blackjack;
 public class GameTest
     extends student.TestCase
 {
+    private Game game;
 
+
+    public void setUp()
+    {
+        game = new Game();
+    }
+
+
+    public void testNewRound()
+    {
+        game.newRound();
+        assertEquals(game.getPlayer(), game.getCurrentPlayer());
+        assertEquals(null, game.getWinner());
+    }
 }
