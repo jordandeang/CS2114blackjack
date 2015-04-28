@@ -147,14 +147,17 @@ public class Game
     }
 
 
-    private void rewardPot()
+    /**
+     * Rewards the pot to the winner, or splits it if there is no winner
+     */
+    public void rewardPot()
     {
         if (winner != null)
         {
             winner.changeMoney(pot);
             pot = 0;
         }
-        else if (pot % 2 == 0)
+        else
         {
             player.changeMoney(pot / 2);
             dealer.changeMoney(pot / 2);
@@ -314,6 +317,18 @@ public class Game
 
 
     /**
+     * Sets the winner to the given Player for testing purposes.
+     *
+     * @param player
+     *            the player to be set to the winner
+     */
+    public void setWinner(Player player)
+    {
+        winner = player;
+    }
+
+
+    /**
      * Returns the winner of the round
      *
      * @return returns the winner
@@ -344,5 +359,17 @@ public class Game
     public int getPot()
     {
         return pot;
+    }
+
+
+    /**
+     * Sets the pot to the given int for testing purposes
+     *
+     * @param p
+     *            the int to set the pot to
+     */
+    public void setPot(int p)
+    {
+        pot = p;
     }
 }

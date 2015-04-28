@@ -53,11 +53,30 @@ public class GameTest
     public void testNewRound()
     {
         game.newRound(10);
-        assertEquals(game.getPlayer(), game.getCurrentPlayer());
-        assertEquals(null, game.getWinner());
-        assertEquals(20, game.getPot());
-        assertEquals(990, game.getPlayer().getMoney());
-        assertEquals(999999990, game.getDealer().getMoney());
+        assertNotSame(0, testPlayer.getHand().size());
+        assertNotSame(0, testDealer.getHand().size());
+        assertNotSame(0, testDiscard.size());
+        assertNotSame(156, testDeck.size());
+    }
+
+
+    /**
+     * Tests the rewardPot method
+     */
+    public void testRewardPot()
+    {
+        game.setWinner(testPlayer);
+        game.setPot(500);
+        game.rewardPot();
+        assertEquals(1500, testPlayer.getMoney());
+        assertEquals(0, game.getPot());
+        game.setWinner(null);
+        game.setPot(1000);
+        game.rewardPot();
+        assertEquals(2000, testPlayer.getMoney());
+        assertEquals(1000000500, testDealer.getMoney());
+        assertEquals(0, game.getPot());
+
     }
 
 

@@ -65,6 +65,7 @@ public class MainScreenTest
             true,
             screen.getShapeView().getShapes().all()
                 .contains(screen.getBackground()));
+        assertEquals("Current pot: $0", screen.getWinner().getText());
     }
 
 
@@ -99,6 +100,7 @@ public class MainScreenTest
                 .contains(screen.getBackground()));
         assertEquals(false, screen.getHit().isEnabled());
         assertEquals(false, screen.getStand().isEnabled());
+        assertEquals(true, screen.getNewRound().isEnabled());
     }
 
 
@@ -130,6 +132,7 @@ public class MainScreenTest
                 .contains(screen.getBackground()));
         assertEquals(false, screen.getHit().isEnabled());
         assertEquals(false, screen.getStand().isEnabled());
+        assertEquals(true, screen.getNewRound().isEnabled());
     }
 
 
@@ -164,5 +167,6 @@ public class MainScreenTest
             true,
             screen.getShapeView().getShapes().all()
                 .contains(screen.getBackground()));
+        assertEquals("Current pot: $0", screen.getWinner().getText());
     }
 }

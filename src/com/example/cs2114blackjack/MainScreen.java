@@ -112,11 +112,13 @@ public class MainScreen
         {
             hit.setEnabled(true);
             stand.setEnabled(true);
+            newRound.setEnabled(false);
         }
         else
         {
             hit.setEnabled(false);
             stand.setEnabled(false);
+            newRound.setEnabled(true);
         }
     }
 
@@ -222,6 +224,18 @@ public class MainScreen
     public RectangleShape getBackground()
     {
         return background;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the winner TextView for testing purposes.
+     *
+     * @return the winner TextView
+     */
+    public TextView getWinner()
+    {
+        return winner;
     }
 
 }
