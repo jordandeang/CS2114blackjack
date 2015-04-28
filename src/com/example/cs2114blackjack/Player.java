@@ -21,6 +21,9 @@ public class Player
 
     /**
      * Default constructor for Player(). Sets score to 0 and create a hand.
+     *
+     * @param money
+     *            the money to start the player with
      */
     public Player(int money)
     {

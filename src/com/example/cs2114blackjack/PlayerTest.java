@@ -1,6 +1,6 @@
 package com.example.cs2114blackjack;
 
-import java.util.*;
+import java.util.ArrayList;
 
 // -------------------------------------------------------------------------
 /**
@@ -11,13 +11,14 @@ import java.util.*;
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
  */
-public class PlayerTest extends student.TestCase
+public class PlayerTest
+    extends student.TestCase
 {
-    private Player          testPlayer;
-    private Card            testCard1;
-    private Card            testCard2;
-    private Card            testCard3;
-    private ArrayList<Card> testHand;
+    private Player testPlayer;
+    private Card   testCard1;
+    private Card   testCard2;
+    private Card   testAce;
+
 
     /**
      * setUp for all test cases in the Player class
@@ -26,26 +27,32 @@ public class PlayerTest extends student.TestCase
     {
         testPlayer = new Player(1000);
         testCard1 = new Card(4, 1);
-        testCard2 = new Card(1, 1);
-        testCard3 = new Card(11, 1);
-        testHand = new ArrayList<Card>();
+        testCard2 = new Card(11, 1);
+        testAce = new Card(1, 1);
     }
+
 
     /**
      * Tests the getUnchangedAce method
      */
     public void testGetUnchangedAce()
     {
-        // TODO
+        testPlayer.addCard(testAce);
+        testPlayer.getHand().add(testAce);
+        assertEquals(testAce, testPlayer.getUnchangedAce());
     }
+
 
     /**
      * Tests the addCard method
      */
     public void testAddCard()
     {
-        // TODO
+        testPlayer.addCard(testCard1);
+        assertEquals(testCard1, testPlayer.getHand().get(0));
+        assertEquals(testCard1.getValue(), testPlayer.getScore());
     }
+
 
     /**
      * Tests the getScore method

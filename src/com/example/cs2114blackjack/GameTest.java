@@ -17,7 +17,7 @@ public class GameTest
 {
     private Game            game;
     private Player          testPlayer;
-
+    private Player          testDealer;
     private Stack<Card>     testDeck;
     private ArrayList<Card> testDiscard;
 
@@ -28,22 +28,22 @@ public class GameTest
     public void setUp()
     {
         game = new Game();
-        testPlayer = new Player(1000);
-        testDiscard = new ArrayList<Card>();
-        testDeck = new Stack<Card>();
-
+        testDiscard = game.getDiscard();
+        testDeck = game.getDeck();
+        testPlayer = game.getPlayer();
+        testDealer = game.getDealer();
+        game.dealHands();
     }
 
 
     /**
-     * Tests the size of the deck and discard pile
+     * Tests fillDiscard method to if the NUMBER_OF_DECKS is added to the
+     * discard
      */
-    public void testDeckAndDiscard()
+    public void testFillDiscard()
     {
-        game.shuffleDeck();
         game.fillDiscard();
-        assertEquals(52, testDeck.size());
-        assertEquals(0, testDiscard.size());
+        assertEquals(156, testDiscard.size());
     }
 
 
@@ -55,9 +55,9 @@ public class GameTest
         game.newRound(10);
         assertEquals(game.getPlayer(), game.getCurrentPlayer());
         assertEquals(null, game.getWinner());
-        assertEquals(20,game.getPot());
-        assertEquals(990,game.getPlayer().getMoney());
-        assertEquals(1999990,game.getDealer().getMoney());
+        assertEquals(20, game.getPot());
+        assertEquals(990, game.getPlayer().getMoney());
+        assertEquals(999999990, game.getDealer().getMoney());
     }
 
 
@@ -66,7 +66,8 @@ public class GameTest
      */
     public void testHit()
     {
-        assertEquals(0, testPlayer.getScore());
+        game.hit(testPlayer);
+        assertTrue(testPlayer.getScore() > 0);
     }
 
 
@@ -75,7 +76,8 @@ public class GameTest
      */
     public void testDealHands()
     {
-        // TODO
+        assertNotSame(0, testPlayer.getHand().size());
+        assertNotSame(0, testDealer.getHand().size());
     }
 
 
@@ -84,15 +86,8 @@ public class GameTest
      */
     public void testShuffleDeck()
     {
-        // TODO
+        game.shuffleDeck();
+        assertEquals(152, testDeck.size());
     }
 
-
-    /**
-     * Tests the fillDisard method
-     */
-    public void testFillDiscard()
-    {
-        // TODO
-    }
 }

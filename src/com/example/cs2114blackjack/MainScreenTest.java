@@ -164,7 +164,5 @@ public class MainScreenTest
             true,
             screen.getShapeView().getShapes().all()
                 .contains(screen.getBackground()));
-        assertEquals(true, screen.getHit().isEnabled());
-        assertEquals(true, screen.getStand().isEnabled());
     }
 }
