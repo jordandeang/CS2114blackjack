@@ -10,7 +10,7 @@
         android:id="@+id/shapeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonLayout" />
+        android:layout_above="@+id/buttonLayoutTop" />
 
     <TextView
         android:id="@+id/dealerLabel"
@@ -21,39 +21,6 @@
         android:text="Dealer"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ADFF2F" />
-
-    <Button
-        android:id="@+id/newRound"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="New Round" />
-
-    <LinearLayout
-        android:id="@+id/buttonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/newRound" >
-
-        <Button
-            android:id="@+id/hit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/newRound"
-            android:layout_alignParentLeft="true"
-            android:layout_weight=".5"
-            android:text="Hit" />
-
-        <Button
-            android:id="@+id/stand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/newRound"
-            android:layout_alignParentRight="true"
-            android:layout_weight=".5"
-            android:text="Stand" />
-    </LinearLayout>
 
     <TextView
         android:id="@+id/playerLabel"
@@ -70,10 +37,62 @@
         android:id="@+id/winner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonLayout"
+        android:layout_above="@+id/buttonLayoutTop"
         android:layout_alignParentLeft="true"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ADFF2F" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonLayoutBottom" >
+
+        <Button
+            android:id="@+id/hit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonLayoutBottom"
+            android:layout_alignParentLeft="true"
+            android:layout_weight=".5"
+            android:text="Hit" />
+
+        <Button
+            android:id="@+id/stand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonLayoutBottom"
+            android:layout_alignParentRight="true"
+            android:layout_weight=".5"
+            android:text="Stand" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonLayoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/newRound"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_weight=".5"
+            android:text="New Round" />
+
+        <EditText
+            android:id="@+id/editBet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight=".5"
+            android:ems="10"
+            android:inputType="number" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
 
 </RelativeLayout>

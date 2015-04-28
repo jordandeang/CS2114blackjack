@@ -22,13 +22,16 @@ public class Game
     /**
      * the deck
      */
-    private Stack<Card>      deck;
-    private ArrayList<Card>  discard;
-    private Player           player;
-    private Player           dealer;
-    private Player           winner;
-    private Player           currentPlayer;
-    private static int NUMBER_OF_DECKS = 3;
+    private Stack<Card>     deck;
+    private ArrayList<Card> discard;
+    private Player          player;
+    private Player          dealer;
+    private Player          winner;
+    private Player          currentPlayer;
+    private static int      NUMBER_OF_DECKS      = 3;
+    private static int      INITIAL_PLAYER_MONEY = 1000;
+    private static int      INITIAL_DEALER_MONEY = 1000000000;
+    private int             pot;
 
 
     // initialize
@@ -42,11 +45,12 @@ public class Game
         deck = new Stack<Card>();
         fillDiscard();
         shuffleDeck();
-        player = new Player();
-        dealer = new Player();
-        dealHands();
-        currentPlayer = player;
+        player = new Player(INITIAL_PLAYER_MONEY);
+        dealer = new Player(INITIAL_DEALER_MONEY);
+        currentPlayer = dealer;
+        pot = 0;
     }
+
 
     // methods
 
@@ -57,11 +61,11 @@ public class Game
     {
         while (!discard.isEmpty())
         {
-            deck.push(discard.remove(Random.generator().
-                nextInt(discard.size())));
+            deck.push(discard.remove(Random.generator().nextInt(discard.size())));
         }
 
     }
+
 
     /**
      * Fills the discard pile with the given amount of decks.
@@ -127,14 +131,36 @@ public class Game
 
 
     /**
-     * Starts a new round with no winner and new hands
+     * Starts a new round with no winner and new hands and a given bet
+     *
+     * @param bet
+     *            the amount the player bets
      */
-    public void newRound()
+    public void newRound(int bet)
     {
+        pot = 0;
         currentPlayer = player;
         winner = null;
+        pot -= player.changeMoney(-bet);
+        pot -= dealer.changeMoney(-pot);
         discardHands();
         dealHands();
+    }
+
+
+    private void rewardPot()
+    {
+        if (winner != null)
+        {
+            winner.changeMoney(pot);
+            pot = 0;
+        }
+        else if (pot % 2 == 0)
+        {
+            player.changeMoney(pot / 2);
+            dealer.changeMoney(pot / 2);
+            pot = 0;
+        }
     }
 
 
@@ -162,12 +188,12 @@ public class Game
                 if (p.equals(dealer))
                 {
                     winner = player;
-
                 }
                 else
                 {
                     winner = dealer;
                 }
+                rewardPot();
                 currentPlayer = dealer;
             }
         }
@@ -201,6 +227,7 @@ public class Game
             {
                 winner = null;
             }
+            rewardPot();
         }
         if (p.equals(player))
         {
@@ -231,6 +258,9 @@ public class Game
     }
 
 
+    /**
+     * Checks if the deck is empty and then shuffles the deck if it is
+     */
     private void checkDeckIsEmpty()
     {
         if (deck.isEmpty())
@@ -305,4 +335,15 @@ public class Game
         return currentPlayer;
     }
 
+
+    // ----------------------------------------------------------
+    /**
+     * Returns the total pot for the round
+     *
+     * @return the pot
+     */
+    public int getPot()
+    {
+        return pot;
+    }
 }

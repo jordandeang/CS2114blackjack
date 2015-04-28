@@ -1,5 +1,6 @@
 package com.example.cs2114blackjack;
 
+import android.widget.EditText;
 import sofia.graphics.RectangleShape;
 import sofia.app.ShapeScreen;
 import android.widget.Button;
@@ -21,10 +22,13 @@ public class MainScreen
 {
     private Game           game;
     private TextView       winner;
+    private TextView       playerLabel;
+    private TextView       dealerLabel;
     private Button         hit;
     private Button         stand;
     private Button         newRound;
     private RectangleShape background;
+    private EditText       editBet;
 
 
     /**
@@ -35,6 +39,7 @@ public class MainScreen
         game = new Game();
         background = new RectangleShape(0, 0, getWidth(), getHeight());
         background.setImage("blackjacktable");
+        editBet.setHint("Enter a bet");
         updateGui();
     }
 
@@ -48,6 +53,8 @@ public class MainScreen
     {
         clear();
         add(background);
+        playerLabel.setText("You: $" + game.getPlayer().getMoney());
+        dealerLabel.setText("Dealer: $" + game.getDealer().getMoney());
         if (game.getDeck().size() > 0)
         {
             for (int i = 0; i < (game.getDeck().size() / 30) + 1; i++)
@@ -99,7 +106,7 @@ public class MainScreen
         }
         else
         {
-            winner.setText("No winner");
+            winner.setText("Current pot: $" + game.getPot());
         }
         if (game.getCurrentPlayer().equals(game.getPlayer()))
         {
@@ -139,7 +146,18 @@ public class MainScreen
      */
     public void newRoundClicked()
     {
-        game.newRound();
+        String editString = editBet.getText().toString();
+        if (editString.equals(""))
+        {
+            game.newRound(0);
+        }
+        else
+        {
+            int bet = Integer.parseInt(editString);
+            game.newRound(bet);
+        }
+        editBet.setText("");
+        editBet.setHint("Enter a bet");
         updateGui();
     }
 
@@ -169,10 +187,11 @@ public class MainScreen
         return stand;
     }
 
+
     // ----------------------------------------------------------
     /**
-     * Returns the newRound button for testing purposes. Allows the test class to
-     * check if it is enabled or not.
+     * Returns the newRound button for testing purposes. Allows the test class
+     * to check if it is enabled or not.
      *
      * @return the newRound button
      */

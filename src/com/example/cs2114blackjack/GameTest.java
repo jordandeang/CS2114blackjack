@@ -12,7 +12,8 @@ import java.util.*;
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
  */
-public class GameTest extends student.TestCase
+public class GameTest
+    extends student.TestCase
 {
     private Game            game;
     private Player          testPlayer;
@@ -20,17 +21,19 @@ public class GameTest extends student.TestCase
     private Stack<Card>     testDeck;
     private ArrayList<Card> testDiscard;
 
+
     /**
      * setUp for all test cases in the Game class
      */
     public void setUp()
     {
         game = new Game();
-        testPlayer = new Player();
+        testPlayer = new Player(1000);
         testDiscard = new ArrayList<Card>();
         testDeck = new Stack<Card>();
 
     }
+
 
     /**
      * Tests the size of the deck and discard pile
@@ -43,15 +46,20 @@ public class GameTest extends student.TestCase
         assertEquals(0, testDiscard.size());
     }
 
+
     /**
      * Tests the newRound method
      */
     public void testNewRound()
     {
-        game.newRound();
+        game.newRound(10);
         assertEquals(game.getPlayer(), game.getCurrentPlayer());
         assertEquals(null, game.getWinner());
+        assertEquals(20,game.getPot());
+        assertEquals(990,game.getPlayer().getMoney());
+        assertEquals(1999990,game.getDealer().getMoney());
     }
+
 
     /**
      * Tests the dealHands method
@@ -61,6 +69,7 @@ public class GameTest extends student.TestCase
         assertEquals(0, testPlayer.getScore());
     }
 
+
     /**
      * Tests the dealHands method
      */
@@ -69,6 +78,7 @@ public class GameTest extends student.TestCase
         // TODO
     }
 
+
     /**
      * Tests the shuffleDeck method
      */
@@ -76,6 +86,7 @@ public class GameTest extends student.TestCase
     {
         // TODO
     }
+
 
     /**
      * Tests the fillDisard method

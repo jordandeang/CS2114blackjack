@@ -24,7 +24,7 @@ public class PlayerTest extends student.TestCase
      */
     public void setUp()
     {
-        testPlayer = new Player();
+        testPlayer = new Player(1000);
         testCard1 = new Card(4, 1);
         testCard2 = new Card(1, 1);
         testCard3 = new Card(11, 1);
