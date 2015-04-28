@@ -1,10 +1,10 @@
 package com.example.cs2114blackjack;
 
-import android.widget.EditText;
-import sofia.graphics.RectangleShape;
-import sofia.app.ShapeScreen;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import sofia.app.ShapeScreen;
+import sofia.graphics.RectangleShape;
 
 // -------------------------------------------------------------------------
 /**

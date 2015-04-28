@@ -1,8 +1,8 @@
 package com.example.cs2114blackjack;
 
-import sofia.util.Random;
-import java.util.Stack;
 import java.util.ArrayList;
+import java.util.Stack;
+import sofia.util.Random;
 
 // -------------------------------------------------------------------------
 /**
@@ -77,6 +77,9 @@ public class Game
             {
                 for (int j = 1; j < 5; j++)
                 {
+                    // Loop through the number of decks, then the number of
+                    // possible card numbers, then the number of suits and make
+                    // a new card and insert it into the discard
                     Card card = new Card(i, j);
                     discard.add(card);
                 }
@@ -106,6 +109,8 @@ public class Game
      */
     public void discardHands()
     {
+        // Loop through the hands and if the card is a converted ace, revert
+        // it. Then add the card to the discard pile
         for (Card c : player.getHand())
         {
             c.flipCardDown();
@@ -180,6 +185,8 @@ public class Game
         p.addCard(card);
         if (p.getScore() > 21)
         {
+            // If the score is over 21, check if there is a convertable ace. If
+            // not, determine the winner
             if (p.getUnchangedAce() != null)
             {
                 p.getUnchangedAce().changeAceValue();
@@ -217,6 +224,7 @@ public class Game
     {
         if (p.equals(dealer) && currentPlayer.equals(dealer))
         {
+            // If the dealer is standing, the winner can be determined
             if (dealer.getScore() > player.getScore())
             {
                 winner = dealer;
@@ -233,6 +241,7 @@ public class Game
         }
         if (p.equals(player))
         {
+            // If the player stands, the dealer conducts his turn
             currentPlayer = dealer;
             dealerTurn();
         }
@@ -247,6 +256,7 @@ public class Game
     {
         for (Card c : dealer.getHand())
         {
+            // Flip every card in the dealer's hand up
             c.flipCardUp();
         }
         while (dealer.getScore() < player.getScore())
@@ -336,6 +346,18 @@ public class Game
     public Player getWinner()
     {
         return winner;
+    }
+
+
+    /**
+     * Sets the currentPlayer to the given player for testing purposes
+     *
+     * @param player
+     *            the player to become the current player
+     */
+    public void setCurrentPlayer(Player player)
+    {
+        currentPlayer = player;
     }
 
 

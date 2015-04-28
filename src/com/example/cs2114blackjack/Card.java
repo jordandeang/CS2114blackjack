@@ -37,8 +37,11 @@ public class Card
         super(0, 0, CARD_WIDTH * 3, CARD_HEIGHT * 3);
         this.number = number;
         suit = numberToSuit(suitInt);
+        // Sets the value to 11 if the card is an ace, its number if its a
+        // number, and 10 if it is a face card.
         if (number == 1)
         {
+
             value = 11;
         }
         else if (number < 10)
@@ -49,6 +52,8 @@ public class Card
         {
             value = 10;
         }
+        // Constructs the imageString to match the filename of the corresponding
+        // card
         imageString = suit;
         if (number <= 10)
         {
@@ -75,8 +80,7 @@ public class Card
      *
      * @param suitInt
      *            is the number of suits
-     * @return
-     *            returns the suit in the form of a string
+     * @return returns the suit in the form of a string
      */
     public String numberToSuit(int suitInt)
     {
@@ -120,7 +124,8 @@ public class Card
 
 
     /**
-     * reveals card to the player
+     * Flips a card up, thus setting the shape image to the imageString made in
+     * the constructor
      */
     public void flipCardUp()
     {
@@ -129,7 +134,7 @@ public class Card
 
 
     /**
-     * Flips a card down that is face up
+     * Flips a card down, thus setting the shape image to the card back image
      */
     public void flipCardDown()
     {
@@ -138,7 +143,7 @@ public class Card
 
 
     /**
-     * returns the value
+     * Returns the value of the card
      *
      * @return returns the value of the card
      */
@@ -149,7 +154,7 @@ public class Card
 
 
     /**
-     * returns the number
+     * Returns the number of the card
      *
      * @return returns the number of the card
      */
@@ -160,7 +165,7 @@ public class Card
 
 
     /**
-     * returns the suit
+     * Returns the suit of the card
      *
      * @return returns the suit of the card
      */
@@ -171,7 +176,7 @@ public class Card
 
 
     /**
-     * returns the string to retrieve the image
+     * Returns the string to retrieve the image for the specified card
      *
      * @return the string to retrieve the image
      */

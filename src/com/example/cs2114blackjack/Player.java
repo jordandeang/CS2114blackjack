@@ -18,8 +18,9 @@ public class Player
     private int             score;
     private int             money;
 
+
     /**
-     * Default constructor for Player(). Sets score to 0 and create a hand.
+     * Default constructor for Player(). Sets score to 0 and createa a hand.
      *
      * @param money
      *            the money to start the player with
@@ -30,6 +31,7 @@ public class Player
         score = 0;
         this.money = money;
     }
+
 
     /**
      * Add the given card to the players hand and record the score
@@ -43,8 +45,9 @@ public class Player
         score += card.getValue();
     }
 
+
     /**
-     * clears the hand
+     * Clears the hand and resets the player's score
      */
     public void clearHand()
     {
@@ -52,15 +55,18 @@ public class Player
         score = 0;
     }
 
+
     /**
-     * Checks hand for an Ace
+     * Checks hand for an Ace and returns it if it still has a value of 11
      *
-     * @return An Ace with the value of 11 if it is in the hand
+     * @return An Ace with the value of 11 if it is in the hand, null otherwise
      */
     public Card getUnchangedAce()
     {
         for (Card c : hand)
         {
+            // Loops through the player's hand and returns the card if it is an
+            // ace with a value of 11
             if (c.getNumber() == 1 && c.getValue() == 11)
             {
                 return c;
@@ -68,6 +74,7 @@ public class Player
         }
         return null;
     }
+
 
     /**
      * Change the money by the given amount and return the changed money
@@ -79,6 +86,8 @@ public class Player
      */
     public int changeMoney(int amount)
     {
+        // Adds the money unless it will put the person in negative money. In
+        // that case it only takes what is left of the player's money.
         if (money + amount >= 0)
         {
             money += amount;
@@ -92,6 +101,7 @@ public class Player
         }
     }
 
+
     /**
      * Recalculates the players score
      */
@@ -100,9 +110,12 @@ public class Player
         score = 0;
         for (Card c : hand)
         {
+            // Loops through the player's hand and adds up the values of the
+            // cards
             score += c.getValue();
         }
     }
+
 
     /**
      * Returns the player's ArrayList hand
@@ -123,6 +136,7 @@ public class Player
     {
         return score;
     }
+
 
     /**
      * Returns the money of the player

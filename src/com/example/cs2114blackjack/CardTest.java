@@ -2,20 +2,22 @@ package com.example.cs2114blackjack;
 
 // -------------------------------------------------------------------------
 /**
- * These are the test cases for the Card class
+ * Unit tests for the Card class
  *
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
  */
-public class CardTest extends student.TestCase
+public class CardTest
+    extends student.TestCase
 {
     private Card testCard1;
     private Card testCard2;
     private Card testCard3;
     private Card testCard4;
     private Card testCard5;
+
 
     /**
      * setUp for all test cases in the Card class
@@ -28,6 +30,21 @@ public class CardTest extends student.TestCase
         testCard4 = new Card(10, 4);
         testCard5 = new Card(11, 4);
     }
+
+
+    /**
+     * Tests the constructor of the card class
+     */
+    public void testConstructor()
+    {
+        assertEquals(1, testCard1.getNumber());
+        assertEquals("c", testCard1.getSuit());
+        assertEquals("c1", testCard1.getImageString());
+        assertEquals(4, testCard2.getNumber());
+        assertEquals("d", testCard2.getSuit());
+        assertEquals("d4", testCard2.getImageString());
+    }
+
 
     /**
      * Tests the numberToSuit method
@@ -51,9 +68,11 @@ public class CardTest extends student.TestCase
 
         assertNotNull(thrown);
         assertTrue(thrown instanceof IllegalArgumentException);
-        assertEquals("Invalid suit number. Choose a number between 1 and 4.",
+        assertEquals(
+            "Invalid suit number. Choose a number between 1 and 4.",
             thrown.getMessage());
     }
+
 
     /**
      * Tests the changeAceValue and revertAceValue methods
@@ -67,6 +86,7 @@ public class CardTest extends student.TestCase
         assertEquals(11, testCard1.getValue());
     }
 
+
     /**
      * Tests the flipCardUp method
      */
@@ -75,6 +95,7 @@ public class CardTest extends student.TestCase
         testCard1.flipCardUp();
         assertEquals("c" + 1, testCard1.getImageString());
     }
+
 
     /**
      * Tests the flipCardDown method
@@ -85,14 +106,4 @@ public class CardTest extends student.TestCase
         assertNotSame("b2fv", testCard1.getImageString());
     }
 
-    /**
-     * Tests the getNumber and getSuit methods
-     */
-    public void testGetNumberAndGetSuit()
-    {
-        assertEquals(1, testCard1.getNumber());
-        assertEquals("c", testCard1.getSuit());
-        assertEquals(4, testCard2.getNumber());
-        assertEquals("d", testCard2.getSuit());
-    }
 }

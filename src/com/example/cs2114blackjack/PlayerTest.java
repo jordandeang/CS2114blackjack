@@ -2,7 +2,7 @@ package com.example.cs2114blackjack;
 
 // -------------------------------------------------------------------------
 /**
- * These are the test cases for the Player class
+ * Unit tests for the Player class
  *
  * @author1 Jason Davis (jdavis7)
  * @author2 Jordan Deang (jdeang)
@@ -16,6 +16,7 @@ public class PlayerTest
     private Card   testCard1;
     private Card   testAce;
 
+
     /**
      * setUp for all test cases in the Player class
      */
@@ -26,15 +27,18 @@ public class PlayerTest
         testAce = new Card(1, 1);
     }
 
+
+// ----------------------------------------------------------
     /**
-     * Tests the getUnchangedAce method
+     * Tests the constructor of the player class
      */
-    public void testGetUnchangedAce()
+    public void testConstructor()
     {
-        testPlayer.addCard(testAce);
-        testPlayer.getHand().add(testAce);
-        assertEquals(testAce, testPlayer.getUnchangedAce());
+        assertEquals(true, testPlayer.getHand().isEmpty());
+        assertEquals(0, testPlayer.getScore());
+        assertEquals(1000, testPlayer.getMoney());
     }
+
 
     /**
      * Tests the addCard method
@@ -46,18 +50,25 @@ public class PlayerTest
         assertEquals(testCard1.getValue(), testPlayer.getScore());
     }
 
+
     /**
-     * Tests the getScore method
+     * Tests the clearHand method
      */
-    public void testGetScore()
+    public void testClearHand()
     {
-        testPlayer.addCard(testCard1);
-        assertEquals(4, testPlayer.getScore());
         testPlayer.clearHand();
+        assertEquals(true, testPlayer.getHand().isEmpty());
         assertEquals(0, testPlayer.getScore());
-        testPlayer.addCard(testCard1);
-        testPlayer.recalculateScore();
-        assertEquals(4, testPlayer.getScore());
+    }
+
+
+    /**
+     * Tests the getUnchangedAce method
+     */
+    public void testGetUnchangedAce()
+    {
+        testPlayer.addCard(testAce);
+        assertEquals(testAce, testPlayer.getUnchangedAce());
     }
 
 
@@ -73,4 +84,17 @@ public class PlayerTest
         assertEquals(-990, testPlayer.changeMoney(-10000));
         assertEquals(0, testPlayer.getMoney());
     }
+
+
+    /**
+     * Tests the recalculateScore method
+     */
+    public void testRecalculateScore()
+    {
+        assertEquals(0, testPlayer.getScore());
+        testPlayer.getHand().add(testCard1);
+        testPlayer.recalculateScore();
+        assertEquals(testCard1.getValue(), testPlayer.getScore());
+    }
+
 }
