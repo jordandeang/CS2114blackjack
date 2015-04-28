@@ -6,7 +6,7 @@ package com.example.cs2114blackjack;
  * functions of the GUI including the buttons.
  *
  * @author1 Jason Davis (jdavis7)
- * @author2 Jordan Deang (jdeang)s
+ * @author2 Jordan Deang (jdeang)
  * @author3 Tommy Hyres (tommy085)
  * @version 2015.04.27
  */
@@ -27,7 +27,6 @@ public class MainScreenTest
         super(MainScreen.class);
     }
 
-
     /**
      * Initializes the text fixtures.
      */
@@ -37,8 +36,6 @@ public class MainScreenTest
         game = screen.getGame();
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Unit test for the initialization of the MainScreen. Checks that the card
      * shapes are in the appropriate places. and that the buttons are
@@ -68,8 +65,6 @@ public class MainScreenTest
         assertEquals("Current pot: $0", screen.getWinner().getText());
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Unit test the hit button on the GUI.
      */
@@ -103,8 +98,6 @@ public class MainScreenTest
         assertEquals(true, screen.getNewRound().isEnabled());
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Unit test the stand button on the GUI.
      */
@@ -135,8 +128,6 @@ public class MainScreenTest
         assertEquals(true, screen.getNewRound().isEnabled());
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Unit test the stand button on the GUI.
      */
@@ -167,6 +158,5 @@ public class MainScreenTest
             true,
             screen.getShapeView().getShapes().all()
                 .contains(screen.getBackground()));
-        assertEquals("Current pot: $0", screen.getWinner().getText());
     }
 }

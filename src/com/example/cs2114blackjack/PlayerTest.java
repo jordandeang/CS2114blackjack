@@ -16,7 +16,6 @@ public class PlayerTest
     private Card   testCard1;
     private Card   testAce;
 
-
     /**
      * setUp for all test cases in the Player class
      */
@@ -26,7 +25,6 @@ public class PlayerTest
         testCard1 = new Card(4, 1);
         testAce = new Card(1, 1);
     }
-
 
     /**
      * Tests the getUnchangedAce method
@@ -38,7 +36,6 @@ public class PlayerTest
         assertEquals(testAce, testPlayer.getUnchangedAce());
     }
 
-
     /**
      * Tests the addCard method
      */
@@ -48,7 +45,6 @@ public class PlayerTest
         assertEquals(testCard1, testPlayer.getHand().get(0));
         assertEquals(testCard1.getValue(), testPlayer.getScore());
     }
-
 
     /**
      * Tests the getScore method
