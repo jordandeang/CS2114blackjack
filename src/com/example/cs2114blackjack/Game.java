@@ -32,7 +32,6 @@ public class Game
 
 
     // initialize
-    // ----------------------------------------------------------
     /**
      * Create a new Game object.
      */

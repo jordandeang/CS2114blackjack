@@ -31,20 +31,26 @@ public class PlayerTest extends student.TestCase
         testHand = new ArrayList<Card>();
     }
 
+    // TODO gives a null result.
     /**
      * Tests the getUnchangedAce method
      */
     public void testGetUnchangedAce()
     {
-        // TODO
+        testPlayer.addCard(testCard3);
+        testHand.add(testCard3);
+        testPlayer.getUnchangedAce();
+        assertEquals(testCard3, testPlayer.getUnchangedAce());
     }
 
+    // TODO has the correct result, but I don't think the formatting is correct.
     /**
      * Tests the addCard method
      */
     public void testAddCard()
     {
-        // TODO
+        testPlayer.addCard(testCard1);
+        assertEquals(testCard1, testPlayer.getHand());
     }
 
     /**

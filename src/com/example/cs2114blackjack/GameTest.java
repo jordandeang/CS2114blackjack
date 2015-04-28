@@ -16,7 +16,7 @@ public class GameTest extends student.TestCase
 {
     private Game            game;
     private Player          testPlayer;
-
+    private Player          testDealer;
     private Stack<Card>     testDeck;
     private ArrayList<Card> testDiscard;
 
@@ -27,9 +27,10 @@ public class GameTest extends student.TestCase
     {
         game = new Game();
         testPlayer = new Player();
+        testPlayer = new Player();
         testDiscard = new ArrayList<Card>();
         testDeck = new Stack<Card>();
-
+        game.dealHands();
     }
 
     /**
@@ -39,7 +40,7 @@ public class GameTest extends student.TestCase
     {
         game.shuffleDeck();
         game.fillDiscard();
-        assertEquals(52, testDeck.size());
+        assertEquals(0, testDeck.size());
         assertEquals(0, testDiscard.size());
     }
 
@@ -58,15 +59,19 @@ public class GameTest extends student.TestCase
      */
     public void testHit()
     {
-        assertEquals(0, testPlayer.getScore());
+        game.hit(testPlayer);
+        assertTrue(testPlayer.getScore() > 0);
     }
 
+    // TODO, not producing correct results. I don't think the cards are being
+    // dealt to the player and dealer.
     /**
      * Tests the dealHands method
      */
     public void testDealHands()
     {
-        // TODO
+        assertNotSame(0, testPlayer.getHand().size());
+        assertNotSame(0, testDealer.getHand().size());
     }
 
     /**
@@ -74,7 +79,9 @@ public class GameTest extends student.TestCase
      */
     public void testShuffleDeck()
     {
-        // TODO
+        game.shuffleDeck();
+        //assertEquals(0, deck.size());
+        //assertEquals(0, Game().discard.size());
     }
 
     /**
