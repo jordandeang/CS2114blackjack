@@ -18,7 +18,6 @@ public class Player
     private int             score;
     private int             money;
 
-
     /**
      * Default constructor for Player(). Sets score to 0 and create a hand.
      *
@@ -32,7 +31,6 @@ public class Player
         this.money = money;
     }
 
-
     /**
      * Add the given card to the players hand and record the score
      *
@@ -45,7 +43,6 @@ public class Player
         score += card.getValue();
     }
 
-
     /**
      * clears the hand
      */
@@ -54,7 +51,6 @@ public class Player
         hand.clear();
         score = 0;
     }
-
 
     /**
      * Checks hand for an Ace
@@ -73,8 +69,6 @@ public class Player
         return null;
     }
 
-
-    // ----------------------------------------------------------
     /**
      * Change the money by the given amount and return the changed money
      *
@@ -98,7 +92,6 @@ public class Player
         }
     }
 
-
     /**
      * Recalculates the players score
      */
@@ -111,7 +104,6 @@ public class Player
         }
     }
 
-
     /**
      * Returns the player's ArrayList hand
      *
@@ -122,7 +114,6 @@ public class Player
         return hand;
     }
 
-
     /**
      * Returns the score of the player
      *
@@ -132,7 +123,6 @@ public class Player
     {
         return score;
     }
-
 
     /**
      * Returns the money of the player

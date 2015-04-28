@@ -1,7 +1,5 @@
 package com.example.cs2114blackjack;
 
-import java.util.ArrayList;
-
 // -------------------------------------------------------------------------
 /**
  * These are the test cases for the Player class
@@ -16,9 +14,7 @@ public class PlayerTest
 {
     private Player testPlayer;
     private Card   testCard1;
-    private Card   testCard2;
     private Card   testAce;
-
 
     /**
      * setUp for all test cases in the Player class
@@ -27,10 +23,8 @@ public class PlayerTest
     {
         testPlayer = new Player(1000);
         testCard1 = new Card(4, 1);
-        testCard2 = new Card(11, 1);
         testAce = new Card(1, 1);
     }
-
 
     /**
      * Tests the getUnchangedAce method
@@ -42,7 +36,6 @@ public class PlayerTest
         assertEquals(testAce, testPlayer.getUnchangedAce());
     }
 
-
     /**
      * Tests the addCard method
      */
@@ -52,7 +45,6 @@ public class PlayerTest
         assertEquals(testCard1, testPlayer.getHand().get(0));
         assertEquals(testCard1.getValue(), testPlayer.getScore());
     }
-
 
     /**
      * Tests the getScore method
